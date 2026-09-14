@@ -1,0 +1,65 @@
+# ---------------------------------------------------------------------
+#  Publiserer web/-mappa til GitHub Pages ved hver push.
+#
+#  GitHub Pages kan normalt bare servere fra rota eller fra docs/.
+#  Denne arbeidsflyten laster opp web/ direkte i stedet, slik at
+#  mappestrukturen i repoet kan være som den er.
+#
+#  Krever ETT klikk først:
+#    Settings → Pages → Source: velg "GitHub Actions"
+#
+#  Adressen blir https://noski03.github.io/Auksjon_nettside/
+#  Husk å legge den inn i Supabase → Authentication → URL Configuration.
+# ---------------------------------------------------------------------
+name: Publiser nettsiden
+
+on:
+  push:
+    branches:
+      - claude/pigeon-auction-website-98dd6x
+      - main
+    paths:
+      - "web/**"
+      - ".github/workflows/publiser.yml"
+  workflow_dispatch:      # lar deg kjøre den manuelt fra Actions-fanen
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Én utrulling om gangen. Pusher du to ganger raskt, vinner den siste.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  publiser:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.utrulling.outputs.page_url }}
+    steps:
+      - name: Hent koden
+        uses: actions/checkout@v4
+
+      - name: Sjekk at oppsettet er fylt ut
+        run: |
+          if grep -q 'DIN_SUPABASE' web/js/config.js; then
+            echo "::error::web/js/config.js har fortsatt plassholdere."
+            echo "::error::Fyll inn SUPABASE_URL og SUPABASE_ANON_KEY, og husk å committe filen."
+            exit 1
+          fi
+          echo "config.js er fylt ut."
+
+      - name: Klargjør Pages
+        uses: actions/configure-pages@v5
+
+      - name: Pakk opp web/
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: web
+
+      - name: Rull ut
+        id: utrulling
+        uses: actions/deploy-pages@v4
