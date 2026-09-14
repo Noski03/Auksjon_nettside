@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alle auksjoner | Dueauksjonen</title>
+<meta name="description" content="Alle lodd i auksjonen: pågående, kommende og avsluttede budrunder.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="assets/merke.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/komponenter.css">
+<!-- Supabase-biblioteket ligger i repoet, ikke på en CDN. Se js/vendor/LESMEG.md -->
+<script src="js/vendor/supabase.js"></script>
+</head>
+<body>
+<a class="hopp-til-innhold" href="#innhold">Hopp til innhold</a>
+<main id="innhold">
+
+<div class="ramme">
+  <p class="stikkord">Katalog</p>
+  <h1>Auksjoner</h1>
+  <p class="dempet" style="margin-bottom:var(--s-4)">
+    Bud registreres i samme øyeblikk de legges inn, og prisen oppdateres
+    hos alle som ser på loddet.
+  </p>
+
+  <div class="filterlinje">
+    <input class="sok" type="search" id="sok" placeholder="Søk på tittel, ringnummer eller stamme"
+           aria-label="Søk i loddene">
+    <select id="filter-tilstand" aria-label="Filtrer på tilstand">
+      <option value="alle">Alle tilstander</option>
+      <option value="live" selected>Pågår nå</option>
+      <option value="kommer">Åpner snart</option>
+      <option value="avsluttet">Avsluttet</option>
+    </select>
+    <select id="filter-runde" aria-label="Filtrer på auksjonsrunde">
+      <option value="alle">Alle runder</option>
+    </select>
+    <select id="sortering" aria-label="Sortering">
+      <option value="slutt">Slutter først</option>
+      <option value="lodd">Loddnummer</option>
+      <option value="pris-opp">Laveste pris</option>
+      <option value="pris-ned">Høyeste pris</option>
+      <option value="bud">Flest bud</option>
+    </select>
+  </div>
+
+  <p id="treff" class="dempet-2" aria-live="polite"></p>
+  <div id="liste" class="lodd-rutenett"></div>
+</div>
+</main>
+<script type="module" src="js/sider/auksjoner.js"></script>
+</body>
+</html>

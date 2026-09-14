@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lodd | Dueauksjonen</title>
+<meta name="description" content="Detaljer, bilder og budhistorikk for loddet — med bud i sanntid.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="assets/merke.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/komponenter.css">
+<!-- Supabase-biblioteket ligger i repoet, ikke på en CDN. Se js/vendor/LESMEG.md -->
+<script src="js/vendor/supabase.js"></script>
+</head>
+<body>
+<a class="hopp-til-innhold" href="#innhold">Hopp til innhold</a>
+<main id="innhold">
+
+<div class="ramme">
+  <p style="margin-bottom:var(--s-3)"><a class="knapp-blank" href="auksjoner.html">&larr; Alle lodd</a></p>
+  <div id="lodd-innhold" aria-live="polite"></div>
+</div>
+</main>
+<script type="module" src="js/sider/auksjon.js"></script>
+</body>
+</html>

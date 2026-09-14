@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Min side | Dueauksjonen</title>
+<meta name="description" content="Budene dine, kjøpene dine og kontaktopplysningene dine.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="assets/merke.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/komponenter.css">
+<!-- Supabase-biblioteket ligger i repoet, ikke på en CDN. Se js/vendor/LESMEG.md -->
+<script src="js/vendor/supabase.js"></script>
+</head>
+<body>
+<a class="hopp-til-innhold" href="#innhold">Hopp til innhold</a>
+<main id="innhold">
+
+<div class="ramme">
+  <p class="stikkord">Min side</p>
+  <h1 id="hilsen">Min side</h1>
+
+  <div class="faner" role="tablist">
+    <button role="tab" data-fane="bud" aria-selected="true">Budene mine</button>
+    <button role="tab" data-fane="kjop" aria-selected="false">Kjøpene mine</button>
+    <button role="tab" data-fane="folger" aria-selected="false">Følger</button>
+    <button role="tab" data-fane="profil" aria-selected="false">Opplysninger</button>
+  </div>
+
+  <section id="fane-bud"></section>
+  <section id="fane-kjop" hidden></section>
+  <section id="fane-folger" hidden></section>
+  <section id="fane-profil" hidden></section>
+</div>
+</main>
+<script type="module" src="js/sider/konto.js"></script>
+</body>
+</html>

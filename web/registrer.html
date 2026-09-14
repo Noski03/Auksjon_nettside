@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bli medlem | Dueauksjonen</title>
+<meta name="description" content="Opprett bruker for å kunne by. Kontaktopplysningene deles bare med selgeren hvis du vinner.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="assets/merke.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/komponenter.css">
+<!-- Supabase-biblioteket ligger i repoet, ikke på en CDN. Se js/vendor/LESMEG.md -->
+<script src="js/vendor/supabase.js"></script>
+</head>
+<body>
+<a class="hopp-til-innhold" href="#innhold">Hopp til innhold</a>
+<main id="innhold">
+
+<div class="ramme ramme-smal">
+  <p class="stikkord">Ny bruker</p>
+  <h1>Bli medlem</h1>
+  <p class="dempet">
+    For å by trenger vi kontaktopplysningene dine. De er skjult for alle
+    andre, og deles med selgeren først når du faktisk har vunnet et lodd —
+    da må de kunne sende deg faktura og avtale henting.
+  </p>
+
+  <div class="kort" style="margin-top:var(--s-4)">
+    <div id="melding"></div>
+    <form id="skjema" novalidate>
+      <p class="stikkord" style="margin-top:0">Innlogging</p>
+      <div class="felt">
+        <label for="epost">E-post</label>
+        <input type="email" id="epost" autocomplete="email" required>
+      </div>
+      <div class="felt-rad">
+        <div class="felt">
+          <label for="passord">Passord</label>
+          <input type="password" id="passord" autocomplete="new-password" minlength="8" required>
+          <p class="felt-hjelp">Minst 8 tegn.</p>
+        </div>
+        <div class="felt">
+          <label for="passord2">Gjenta passord</label>
+          <input type="password" id="passord2" autocomplete="new-password" required>
+        </div>
+      </div>
+
+      <p class="stikkord" style="margin-top:var(--s-4)">Vises offentlig</p>
+      <div class="felt">
+        <label for="visningsnavn">Visningsnavn</label>
+        <input type="text" id="visningsnavn" maxlength="28" required>
+        <p class="felt-hjelp">
+          Dette er det eneste andre ser om deg i budhistorikken. Velg gjerne
+          noe annet enn fullt navn, for eksempel «Slagvik» eller «OlaN».
+        </p>
+      </div>
+
+      <p class="stikkord" style="margin-top:var(--s-4)">Privat — bare for oppgjør</p>
+      <div class="felt">
+        <label for="navn">Fullt navn</label>
+        <input type="text" id="navn" autocomplete="name" required>
+      </div>
+      <div class="felt-rad">
+        <div class="felt">
+          <label for="telefon">Telefon</label>
+          <input type="tel" id="telefon" autocomplete="tel" required>
+        </div>
+        <div class="felt">
+          <label for="forening">Forening <span class="valgfritt">(valgfritt)</span></label>
+          <input type="text" id="forening" autocomplete="organization">
+        </div>
+      </div>
+      <div class="felt">
+        <label for="adresse">Adresse</label>
+        <input type="text" id="adresse" autocomplete="street-address" required>
+      </div>
+      <div class="felt-rad">
+        <div class="felt">
+          <label for="postnr">Postnummer</label>
+          <input type="text" id="postnr" inputmode="numeric" autocomplete="postal-code"
+                 maxlength="4" required>
+        </div>
+        <div class="felt">
+          <label for="sted">Poststed</label>
+          <input type="text" id="sted" autocomplete="address-level2" required>
+        </div>
+        <div class="felt">
+          <label for="land">Land</label>
+          <input type="text" id="land" value="Norge" autocomplete="country-name" required>
+        </div>
+      </div>
+
+      <div class="avkryss felt" style="margin-top:var(--s-4)">
+        <input type="checkbox" id="godta" required>
+        <label for="godta">
+          Jeg har lest <a href="regler.html" target="_blank">reglene</a> og forstår
+          at et bud er bindende, og at kontaktopplysningene mine sendes til
+          selgeren hvis jeg vinner et lodd.
+        </label>
+      </div>
+
+      <button class="knapp knapp-stor" type="submit">Opprett bruker</button>
+    </form>
+  </div>
+  <p class="dempet" style="margin-top:var(--s-4);text-align:center">
+    Har du allerede bruker? <a href="logg-inn.html">Logg inn</a>
+  </p>
+</div>
+</main>
+<script type="module" src="js/sider/registrer.js"></script>
+</body>
+</html>

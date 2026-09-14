@@ -1,0 +1,239 @@
+/* =====================================================================
+   KOMPONENTER
+   Flate flater, hårstreker og tydelige tall — mer auksjonskatalog
+   enn app. Ingen slagskygger.
+   ===================================================================== */
+
+/* --- Knapper ---------------------------------------------------------- */
+.knapp {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  font: 500 var(--t--1)/1 var(--font-ui); letter-spacing: .01em;
+  padding: .7rem 1.1rem; border-radius: var(--radius); border: 1px solid transparent;
+  background: var(--copper); color: #FFF9F3; cursor: pointer; text-decoration: none;
+  transition: background .15s, border-color .15s, color .15s, transform .08s;
+}
+.knapp:hover { background: var(--copper-deep); color: #FFF9F3; }
+.knapp:active { transform: translateY(1px); }
+.knapp-stor { font-size: var(--t-0); padding: .85rem 1.4rem; width: 100%; }
+.knapp-tynn { padding: .45rem .8rem; font-size: var(--t--2); }
+
+.knapp-ramme { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+.knapp-ramme:hover { background: var(--paper-sunk); color: var(--ink); border-color: var(--ink-3); }
+.knapp-blank { background: transparent; color: var(--copper-deep); padding-inline: .3rem; }
+.knapp-blank:hover { background: transparent; color: var(--copper); text-decoration: underline; }
+.knapp-fare { background: var(--alert); }
+.knapp-fare:hover { background: var(--alert); filter: brightness(.88); }
+.topp .knapp { background: var(--copper); color: #FFF9F3; }
+.topp .knapp-ramme { background: transparent; color: var(--petrol-ink); border-color: rgba(237,230,214,.35); }
+.topp .knapp-ramme:hover { background: rgba(237,230,214,.1); color: var(--petrol-ink); }
+
+/* --- Kort ------------------------------------------------------------- */
+.kort {
+  background: var(--paper-raised); border: var(--ramme); border-radius: var(--radius-stor);
+  padding: var(--s-4);
+}
+.kort-tett { padding: var(--s-3); }
+
+/* --- Merkelapper ------------------------------------------------------ */
+.merkelapp {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font: 600 var(--t--2)/1 var(--font-ui); letter-spacing: .12em; text-transform: uppercase;
+  padding: .32rem .55rem; border-radius: 2px; border: 1px solid;
+  color: var(--ink-2); border-color: var(--line-strong); background: var(--paper-sunk);
+  white-space: nowrap;
+}
+.merkelapp-live    { color: var(--copper-deep); border-color: var(--copper); background: var(--copper-wash); }
+.merkelapp-kommer  { color: var(--ink-2); }
+.merkelapp-slutt   { color: var(--ink-3); }
+.merkelapp-leder   { color: var(--sage); border-color: var(--sage); background: var(--sage-wash); }
+.merkelapp-overbudt{ color: var(--alert); border-color: var(--alert); background: var(--alert-wash); }
+
+.prikk { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex: none; }
+.merkelapp-live .prikk { animation: puls 2.4s ease-in-out infinite; }
+@keyframes puls { 0%,100% { opacity: 1; } 50% { opacity: .28; } }
+
+/* --- Loddkort --------------------------------------------------------- */
+.lodd {
+  position: relative; display: flex; flex-direction: column;
+  background: var(--paper-raised); border: var(--ramme); border-radius: var(--radius-stor);
+  overflow: hidden; text-decoration: none; color: inherit;
+  transition: border-color .15s, transform .15s;
+}
+.lodd:hover { border-color: var(--line-strong); transform: translateY(-2px); color: inherit; }
+.lodd:hover .lodd-tittel { text-decoration: underline; text-underline-offset: 3px; }
+
+.lodd-bilde { aspect-ratio: 1.618; background: var(--paper-sunk); position: relative; overflow: hidden; }
+.lodd-bilde img { width: 100%; height: 100%; object-fit: cover; }
+.lodd-nr {
+  position: absolute; left: 0; top: var(--s-3);
+  background: var(--petrol); color: var(--petrol-ink);
+  font: 600 var(--t--2)/1 var(--font-mono); letter-spacing: .1em;
+  padding: .38rem .6rem .38rem .55rem; border-radius: 0 2px 2px 0;
+}
+.lodd-merke { position: absolute; right: var(--s-2); top: var(--s-2); }
+.lodd-hjerte {
+  position: absolute; right: var(--s-2); bottom: var(--s-2);
+  background: color-mix(in srgb, var(--paper-raised) 88%, transparent);
+  border: var(--ramme); border-radius: 50%; width: 2rem; height: 2rem;
+  display: grid; place-items: center; cursor: pointer; color: var(--ink-2); padding: 0;
+}
+.lodd-hjerte[aria-pressed="true"] { color: var(--copper); border-color: var(--copper); }
+
+.lodd-kropp { padding: var(--s-3); display: flex; flex-direction: column; gap: var(--s-2); flex: 1; }
+.lodd-tittel { font: 600 var(--t-1)/1.2 var(--font-display); margin: 0; }
+.lodd-meta { font-size: var(--t--1); color: var(--ink-3); margin: 0; }
+.lodd-fot {
+  margin-top: auto; padding-top: var(--s-3); border-top: 1px dashed var(--line);
+  display: flex; align-items: flex-end; justify-content: space-between; gap: var(--s-2);
+}
+.lodd-pris { font: 600 var(--t-2)/1 var(--font-mono); font-variant-numeric: tabular-nums; letter-spacing: -.03em; }
+.lodd-pris-merk { display: block; font: 500 var(--t--2)/1 var(--font-ui); letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-3); margin-bottom: .4rem; }
+.lodd-tid { text-align: right; font-size: var(--t--1); }
+
+/* --- Nedtelling ------------------------------------------------------- */
+.nedtelling { font-family: var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.nedtelling-haster { color: var(--alert); font-weight: 600; }
+
+/* --- Budpanel --------------------------------------------------------- */
+.budpanel { background: var(--paper-raised); border: var(--ramme); border-radius: var(--radius-stor); overflow: hidden; }
+.budpanel-topp {
+  background: var(--paper-sunk); border-bottom: var(--ramme);
+  padding: var(--s-3) var(--s-4); display: flex; justify-content: space-between;
+  align-items: center; gap: var(--s-2); flex-wrap: wrap;
+}
+.budpanel-kropp { padding: var(--s-4); }
+.budpanel-pris { font: 600 var(--t-4)/1 var(--font-mono); font-variant-numeric: tabular-nums;
+  letter-spacing: -.035em; margin: 0; }
+.budpanel-pris.blinker { animation: blink 1.1s ease-out; }
+@keyframes blink {
+  0%   { background: var(--copper-wash); box-shadow: 0 0 0 .4rem var(--copper-wash); }
+  100% { background: transparent;        box-shadow: 0 0 0 .4rem transparent; }
+}
+.budpanel-rad { display: flex; justify-content: space-between; gap: var(--s-3); padding: .45rem 0; font-size: var(--t--1); }
+.budpanel-rad + .budpanel-rad { border-top: 1px dotted var(--line); }
+.budpanel-rad dt { color: var(--ink-2); margin: 0; }
+.budpanel-rad dd { margin: 0; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+.budform { display: grid; gap: var(--s-2); margin-top: var(--s-3); }
+.bud-bytte { display: flex; gap: 0; border: 1px solid var(--line-strong); border-radius: var(--radius); overflow: hidden; }
+.bud-bytte button {
+  flex: 1; background: var(--paper); border: 0; padding: .55rem .4rem; cursor: pointer;
+  font: 500 var(--t--1) var(--font-ui); color: var(--ink-2);
+}
+.bud-bytte button + button { border-left: 1px solid var(--line-strong); }
+.bud-bytte button[aria-pressed="true"] { background: var(--petrol); color: var(--petrol-ink); }
+
+.bud-status { border-radius: var(--radius); padding: var(--s-2) var(--s-3); font-size: var(--t--1); border: 1px solid; }
+.bud-status-leder    { background: var(--sage-wash);  border-color: var(--sage);   color: var(--sage); }
+.bud-status-overbudt { background: var(--alert-wash); border-color: var(--alert);  color: var(--alert); }
+.bud-status-info     { background: var(--paper-sunk); border-color: var(--line-strong); color: var(--ink-2); }
+
+/* --- Budhistorikk ----------------------------------------------------- */
+/* Budlista kan bli lang. Den ruller, og en myk kant nederst viser at
+   det finnes mer under — ellers ser det ut som en avkuttet rad. */
+.budlogg-ramme { position: relative; }
+.budlogg-ramme::after {
+  content: ""; position: absolute; inset: auto 0 0; height: 2.6rem; pointer-events: none;
+  background: linear-gradient(to bottom, transparent, var(--paper));
+}
+.budlogg {
+  list-style: none; margin: 0; padding: 0 var(--s-2) var(--s-3) 0;
+  max-height: 24rem; overflow-y: auto; scrollbar-width: thin;
+}
+.budlogg li {
+  display: grid; grid-template-columns: 1fr auto; gap: .2rem var(--s-3);
+  padding: .6rem 0; border-bottom: 1px dotted var(--line); font-size: var(--t--1);
+}
+.budlogg li:first-child { animation: nytt-bud 1.4s ease-out; }
+@keyframes nytt-bud { 0% { background: var(--copper-wash); } 100% { background: transparent; } }
+.budlogg-navn { font-weight: 500; }
+.budlogg-belop { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-weight: 600; }
+.budlogg-tid { grid-column: 1; color: var(--ink-3); font-size: var(--t--2); }
+.budlogg-auto { grid-column: 2; text-align: right; color: var(--ink-3); font-size: var(--t--2); }
+.budlogg-meg .budlogg-navn { color: var(--copper-deep); }
+
+/* --- Faktatabell ------------------------------------------------------ */
+.fakta { width: 100%; border-collapse: collapse; font-size: var(--t--1); }
+.fakta th, .fakta td { text-align: left; padding: .6rem var(--s-2) .6rem 0; border-bottom: 1px dotted var(--line); vertical-align: top; }
+.fakta th { font-weight: 500; color: var(--ink-2); width: 40%; }
+.fakta td { font-family: var(--font-mono); font-size: var(--t--1); }
+.fakta tr:last-child th, .fakta tr:last-child td { border-bottom: 0; }
+
+/* --- Kontaktkort (vinner/selger) -------------------------------------- */
+.kontaktkort { background: var(--sage-wash); border: 1px solid var(--sage); border-radius: var(--radius-stor); padding: var(--s-3); }
+.kontaktkort h4 { font-family: var(--font-ui); font-size: var(--t--1); letter-spacing: .1em;
+  text-transform: uppercase; color: var(--sage); margin-bottom: var(--s-2); }
+.kontaktkort dl { display: grid; grid-template-columns: auto 1fr; gap: .3rem var(--s-3); margin: 0; font-size: var(--t--1); }
+.kontaktkort dt { color: var(--ink-2); }
+.kontaktkort dd { margin: 0; }
+
+/* --- Beskjeder -------------------------------------------------------- */
+.beskjed { border: 1px solid; border-radius: var(--radius); padding: var(--s-3); font-size: var(--t--1); margin-bottom: var(--s-3); }
+.beskjed p:last-child { margin-bottom: 0; }
+.beskjed-feil  { background: var(--alert-wash); border-color: var(--alert); color: var(--alert); }
+.beskjed-ok    { background: var(--sage-wash);  border-color: var(--sage);  color: var(--sage); }
+.beskjed-info  { background: var(--paper-sunk); border-color: var(--line-strong); color: var(--ink-2); }
+.beskjed-varsel{ background: var(--copper-wash); border-color: var(--copper); color: var(--copper-deep); }
+
+/* --- Sprettvarsel ----------------------------------------------------- */
+.varselfelt {
+  position: fixed; left: 50%; transform: translateX(-50%); bottom: var(--s-4);
+  z-index: 90; display: grid; gap: var(--s-2); width: min(26rem, calc(100vw - 2rem));
+}
+.varsel {
+  background: var(--petrol); color: var(--petrol-ink); border-radius: var(--radius);
+  padding: var(--s-3); font-size: var(--t--1); border-left: 3px solid var(--copper);
+  animation: inn .25s ease-out;
+}
+.varsel-ok   { border-left-color: var(--sage); }
+.varsel-feil { border-left-color: var(--alert); }
+@keyframes inn { from { opacity: 0; transform: translateY(.6rem); } }
+
+/* --- Tomt / laster ---------------------------------------------------- */
+.tomt { text-align: center; padding: var(--s-6) var(--s-3); border: 1px dashed var(--line-strong); border-radius: var(--radius-stor); color: var(--ink-2); }
+.tomt h3 { font-family: var(--font-display); margin-bottom: var(--s-2); }
+
+.skjelett { background: var(--paper-sunk); border-radius: var(--radius); animation: puls-skjelett 1.4s ease-in-out infinite; }
+@keyframes puls-skjelett { 0%,100% { opacity: 1; } 50% { opacity: .5; } }
+.skjelett-kort { height: 20rem; border-radius: var(--radius-stor); }
+
+/* --- Fanerad ---------------------------------------------------------- */
+.faner { display: flex; gap: var(--s-3); border-bottom: 1px solid var(--line); margin-bottom: var(--s-4); overflow-x: auto; }
+.faner button {
+  background: none; border: 0; border-bottom: 2px solid transparent; cursor: pointer;
+  padding: .6rem .2rem; font: 500 var(--t--1) var(--font-ui); color: var(--ink-2); white-space: nowrap;
+}
+.faner button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--copper); }
+
+/* --- Filterlinje ------------------------------------------------------ */
+.filterlinje {
+  display: flex; gap: var(--s-2); flex-wrap: wrap; align-items: center;
+  padding: var(--s-3); background: var(--paper-raised); border: var(--ramme);
+  border-radius: var(--radius-stor); margin-bottom: var(--s-4);
+}
+.filterlinje .sok { flex: 1 1 13rem; }
+.filterlinje select { width: auto; flex: 0 1 11rem; }
+
+/* --- Datatabell (admin) ----------------------------------------------- */
+.tabell { width: 100%; border-collapse: collapse; font-size: var(--t--1); }
+.tabell th {
+  text-align: left; font: 600 var(--t--2)/1 var(--font-ui); letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-3); padding: var(--s-2) var(--s-2) var(--s-2) 0;
+  border-bottom: 1px solid var(--line-strong); white-space: nowrap;
+}
+.tabell td { padding: .7rem var(--s-2) .7rem 0; border-bottom: 1px dotted var(--line); vertical-align: middle; }
+.tabell tbody tr:hover { background: var(--paper-sunk); }
+.tabell-rull { overflow-x: auto; }
+
+/* --- Dialog ----------------------------------------------------------- */
+dialog {
+  border: var(--ramme); border-radius: var(--radius-stor); padding: 0;
+  background: var(--paper-raised); color: var(--ink);
+  width: min(42rem, calc(100vw - 2rem)); max-height: 86vh;
+}
+dialog::backdrop { background: rgba(15,17,20,.55); backdrop-filter: blur(2px); }
+.dialog-topp { display: flex; justify-content: space-between; align-items: center;
+  gap: var(--s-3); padding: var(--s-3) var(--s-4); border-bottom: var(--ramme); }
+.dialog-topp h3 { margin: 0; }
+.dialog-kropp { padding: var(--s-4); overflow-y: auto; max-height: 68vh; }

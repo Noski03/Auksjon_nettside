@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mine salg | Dueauksjonen</title>
+<meta name="description" content="Loddene dine og kontaktopplysningene til kjøperne.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="assets/merke.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/komponenter.css">
+<!-- Supabase-biblioteket ligger i repoet, ikke på en CDN. Se js/vendor/LESMEG.md -->
+<script src="js/vendor/supabase.js"></script>
+</head>
+<body>
+<a class="hopp-til-innhold" href="#innhold">Hopp til innhold</a>
+<main id="innhold">
+
+<div class="ramme">
+  <p class="stikkord">For selgere</p>
+  <h1>Mine salg</h1>
+  <p class="dempet">
+    Her ligger loddene som er registrert på deg. Når en budrunde er over og
+    minsteprisen er nådd, får du fullt navn, adresse, telefon og e-post til
+    kjøperen — det du trenger for å sende faktura.
+  </p>
+  <div id="salg" style="margin-top:var(--s-4)"></div>
+</div>
+</main>
+<script type="module" src="js/sider/mine-salg.js"></script>
+</body>
+</html>

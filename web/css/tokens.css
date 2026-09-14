@@ -1,0 +1,110 @@
+/* =====================================================================
+   DESIGNGRUNNLAG
+   Alle farger, skriftstørrelser og avstander bor her. Skal du endre
+   uttrykket på siden er dette den eneste filen du trenger å røre.
+
+   Skalaen bygger på det gylne snitt (φ ≈ 1,618). Hvert steg i
+   skriftskalaen er √φ ≈ 1,272, slik at annethvert steg er nøyaktig φ.
+   Avstandene følger samme rekke. Det gir siden en rytme som henger
+   sammen uten at man kan peke på hvorfor.
+   ===================================================================== */
+
+:root {
+  /* --- Papir og blekk ------------------------------------------------ */
+  --paper:        #F7F3EA;   /* varm off-white, ikke hvit */
+  --paper-raised: #FFFDF7;
+  --paper-sunk:   #EDE7D9;
+  --line:         #DCD3BF;
+  --line-strong:  #C3B79C;
+  --ink:          #1A1C1F;
+  --ink-2:        #4B5158;
+  --ink-3:        #767C83;
+
+  /* --- Aksenter ------------------------------------------------------ */
+  --copper:       #B0501C;   /* handling: by, send, bekreft */
+  --copper-deep:  #8C3D12;
+  --copper-wash:  #F6E6DA;
+  --petrol:       #1F3038;   /* topp- og bunnfelt */
+  --petrol-ink:   #EDE6D6;
+  --sage:         #4E6E52;   /* du leder */
+  --sage-wash:    #E4EDE2;
+  --alert:        #9E2B2B;   /* overbudt, feil */
+  --alert-wash:   #F7E3E1;
+
+  --focus:        #1F3038;
+
+  /* --- Skrift -------------------------------------------------------- */
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-ui:      "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+
+  --t--2: 0.618rem;
+  --t--1: 0.786rem;
+  --t-0:  1rem;
+  --t-1:  1.272rem;
+  --t-2:  1.618rem;
+  --t-3:  2.058rem;
+  --t-4:  2.618rem;
+  --t-5:  3.330rem;
+
+  /* --- Avstand (samme gylne rekke) ------------------------------------ */
+  --s-1: 0.382rem;
+  --s-2: 0.618rem;
+  --s-3: 1rem;
+  --s-4: 1.618rem;
+  --s-5: 2.618rem;
+  --s-6: 4.236rem;
+  --s-7: 6.854rem;
+
+  /* --- Mål ----------------------------------------------------------- */
+  --bredde:      71.5rem;     /* ca. 1144px */
+  --bredde-smal: 27.5rem;
+  --radius:      3px;         /* nesten skarpt: trykksak, ikke app */
+  --radius-stor: 5px;
+  --ramme:       1px solid var(--line);
+}
+
+/* Mørk drakt. Følger nettleseren, men et valg på siden overstyrer. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="lys"]) {
+    --paper:        #15171B;
+    --paper-raised: #1D2126;
+    --paper-sunk:   #101215;
+    --line:         #2E333B;
+    --line-strong:  #414954;
+    --ink:          #EFEADE;
+    --ink-2:        #B0B7BF;
+    --ink-3:        #7E858E;
+    --copper:       #DD7F4A;
+    --copper-deep:  #EFA274;
+    --copper-wash:  #2C1E15;
+    --petrol:       #0D1317;
+    --petrol-ink:   #E4DCCB;
+    --sage:         #8CB691;
+    --sage-wash:    #17241A;
+    --alert:        #DF7A70;
+    --alert-wash:   #2A1715;
+    --focus:        #DD7F4A;
+  }
+}
+
+:root[data-tema="mork"] {
+  --paper:        #15171B;
+  --paper-raised: #1D2126;
+  --paper-sunk:   #101215;
+  --line:         #2E333B;
+  --line-strong:  #414954;
+  --ink:          #EFEADE;
+  --ink-2:        #B0B7BF;
+  --ink-3:        #7E858E;
+  --copper:       #DD7F4A;
+  --copper-deep:  #EFA274;
+  --copper-wash:  #2C1E15;
+  --petrol:       #0D1317;
+  --petrol-ink:   #E4DCCB;
+  --sage:         #8CB691;
+  --sage-wash:    #17241A;
+  --alert:        #DF7A70;
+  --alert-wash:   #2A1715;
+  --focus:        #DD7F4A;
+}

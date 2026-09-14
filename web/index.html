@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brevduer på auksjon | Dueauksjonen</title>
+<meta name="description" content="Auksjon av brevduer med bud i sanntid. Registrer deg, følg budrundene live og by på duene du vil ha.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="assets/merke.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/komponenter.css">
+<!-- Supabase-biblioteket ligger i repoet, ikke på en CDN. Se js/vendor/LESMEG.md -->
+<script src="js/vendor/supabase.js"></script>
+</head>
+<body>
+<a class="hopp-til-innhold" href="#innhold">Hopp til innhold</a>
+<main id="innhold">
+
+<section class="ramme" id="velkomst"></section>
+
+<section class="ramme" style="margin-top:var(--s-6)">
+  <div class="seksjonstittel">
+    <div>
+      <p class="stikkord">Pågår nå</p>
+      <h2>Åpne budrunder</h2>
+    </div>
+    <a class="knapp knapp-ramme knapp-tynn" href="auksjoner.html">Se alle lodd</a>
+  </div>
+  <div id="live-lodd" class="lodd-rutenett"></div>
+</section>
+
+<section class="ramme" style="margin-top:var(--s-6)" id="kommer-seksjon" hidden>
+  <div class="seksjonstittel">
+    <div>
+      <p class="stikkord">Snart</p>
+      <h2>Åpner om kort tid</h2>
+    </div>
+  </div>
+  <div id="kommer-lodd" class="lodd-rutenett"></div>
+</section>
+
+<section class="ramme" style="margin-top:var(--s-7)">
+  <div class="seksjonstittel"><h2>Tre steg</h2></div>
+  <ol id="steg" class="lodd-rutenett" style="list-style:none;padding:0;margin:0"></ol>
+</section>
+</main>
+<script type="module" src="js/sider/forside.js"></script>
+</body>
+</html>
